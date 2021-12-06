@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function FoodsIndex(props) {
@@ -16,7 +15,7 @@ function FoodsIndex(props) {
     return <h1>Loading...</h1>;
   };
 
-  return <section>{props.foods ? loaded() : loading()}</section>;
+  return loaded();
 }
 
 export default FoodsIndex;

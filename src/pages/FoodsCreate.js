@@ -4,6 +4,10 @@ import { withRouter } from 'react-router-dom'
 function FoodsCreate(props) {
   const [newForm, setNewForm] = useState({
     name: "",
+    maxHarvest: "",
+    foodType: "",
+    decayTime: "",
+    favoriteOf: "",
     image: "",
   });
 
@@ -15,9 +19,12 @@ function FoodsCreate(props) {
     event.preventDefault();
     props.createFoods(newForm);
     setNewForm({
-      name: "",
-      image: "",
-      title: "",
+        name: "",
+        maxHarvest: "",
+        foodType: "",
+        decayTime: "",
+        favoriteOf: "",
+        image: "",
     });
     props.history.push('/foods');
   };
@@ -29,7 +36,35 @@ function FoodsCreate(props) {
           type="text"
           value={newForm.name}
           name="name"
-          placeholder="name"
+          placeholder="Food"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.maxHarvest}
+          name="maxHarvest"
+          placeholder="Max Harvest Amount"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.foodType}
+          name="foodType"
+          placeholder="Type of Food"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.decayTime}
+          name="decayTime"
+          placeholder="Decay Time"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.favoriteOf}
+          name="favoriteOf"
+          placeholder="Favorite of (which slime)"
           onChange={handleChange}
         />
         <input

@@ -37,7 +37,7 @@ function Main(props) {
   const getToys = async () => {
     const response = await fetch(URL3);
     const data = await response.json();
-    setSlimes(data);
+    setToys(data);
   };
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////// Create \/
@@ -54,7 +54,7 @@ function Main(props) {
   };
 
   const createFoods = async (food) => {
-    await fetch(URL, {
+    await fetch(URL2, {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
@@ -65,7 +65,7 @@ function Main(props) {
   };
 
   const createToys = async (toy) => {
-    await fetch(URL, {
+    await fetch(URL3, {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
@@ -134,27 +134,29 @@ function Main(props) {
   };
 
   useEffect(() => getSlimes(), []);
+  useEffect(() => getFoods(), []);
+  useEffect(() => getSlimes(), []);
 
   return (
     <main>
       <Switch>
         <Route exact path="/slimes">
           <Link to={`/slimes/create`}>Create A Slime</Link>
-          <SlimesIndex />
+          <SlimesIndex slimes={slimes}/>
         </Route>
         <Route exact path="/slimes/create">
           <SlimesCreate slimes={slimes} createSlimes={createSlimes} />
         </Route>
         <Route exact path="/foods">
           <Link to={`/foods/create`}>Create A Food</Link>
-          <FoodsIndex />
+          <FoodsIndex foods={foods} />
         </Route>
         <Route exact path="/foods/create">
           <FoodsCreate foods={foods} createFoods={createFoods} />
         </Route>
         <Route exact path="/toys">
           <Link to={`/toys/create`}>Create A Toy</Link>
-          <ToysIndex />
+          <ToysIndex toys={toys} />
         </Route>
         <Route exact path="/toys/create">
           <ToysCreate toys={toys} createToys={createToys} />

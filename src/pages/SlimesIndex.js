@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 function SlimesIndex(props) {
-
-  
   const loaded = () => {
     return props.slimes.map((slime) => (
       <div key={slime._id} className="slime">
@@ -13,15 +11,12 @@ function SlimesIndex(props) {
       </div>
     ));
   };
+
   const loading = () => {
     return <h1>Loading...</h1>;
   };
 
-  return (
-    <section>
-      {props.slimes ? loaded() : loading()}
-    </section>
-    )
+  return props.slimes ? loaded() : loading();
 }
 
 export default SlimesIndex;

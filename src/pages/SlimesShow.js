@@ -27,10 +27,42 @@ function SlimesShow(props) {
 
   return (
     <div className="slime">
-      <h1>{slime.name}</h1>
-      <h2>{slime.title}</h2>
       <img src={slime.image} alt={slime.name} />
+      <h1>Name: {slime.name}</h1>
+      <h1>Diet Type: {slime.dietType}</h1>
+      <h1>Favorite Food: {slime.favFood}</h1>
+      <h1>Favorite Toy: {slime.favToy}</h1>
+      <h1>Agression: {slime.slimeType}</h1>
+      <h2>Color: {slime.color}</h2>
       <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={editForm.name}
+          name="name"
+          placeholder="name"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={editForm.name}
+          name="name"
+          placeholder="name"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={editForm.name}
+          name="name"
+          placeholder="name"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={editForm.name}
+          name="name"
+          placeholder="name"
+          onChange={handleChange}
+        />
         <input
           type="text"
           value={editForm.name}
@@ -42,7 +74,7 @@ function SlimesShow(props) {
           type="text"
           value={editForm.image}
           name="image"
-          placeholder="image URL"
+          placeholder="Image URL"
           onChange={handleChange}
         />
         <input type="submit" value="Update Slime" />

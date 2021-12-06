@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function ToysIndex(props) {
@@ -12,11 +11,12 @@ function ToysIndex(props) {
       </div>
     ));
   };
+
   const loading = () => {
     return <h1>Loading...</h1>;
   };
 
-  return <section>{props.toys ? loaded() : loading()}</section>;
+  return loaded();
 }
 
 export default ToysIndex;

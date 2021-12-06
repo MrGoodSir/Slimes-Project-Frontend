@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 function ToysCreate(props) {
   const [newForm, setNewForm] = useState({
     name: "",
+    favoriteOf: "",
+    price: "",
     image: "",
   });
 
@@ -18,8 +20,10 @@ function ToysCreate(props) {
     event.preventDefault();
     props.createToys(newForm);
     setNewForm({
-      name: "",
-      image: "",
+        name: "",
+        favoriteOf: "",
+        price: "",
+        image: "",
     });
     props.history.push("/toys");
   };
@@ -31,14 +35,28 @@ function ToysCreate(props) {
           type="text"
           value={newForm.name}
           name="name"
-          placeholder="name"
+          placeholder="Name"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.favoriteOf}
+          name="favoriteOf"
+          placeholder="Favorite of (which slime)"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.price}
+          name="price"
+          placeholder="Price"
           onChange={handleChange}
         />
         <input
           type="text"
           value={newForm.image}
           name="image"
-          placeholder="image URL"
+          placeholder="Image URL"
           onChange={handleChange}
         />
         <input type="submit" value="Create Toy" />
