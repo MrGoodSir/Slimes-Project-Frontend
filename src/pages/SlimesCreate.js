@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { withRouter } from 'react-router-dom'
 
 function SlimesCreate(props) {
   const [newForm, setNewForm] = useState({
@@ -46,4 +47,4 @@ function SlimesCreate(props) {
   );
 }
 
-export default SlimesCreate;
+export default withRouter(SlimesCreate);

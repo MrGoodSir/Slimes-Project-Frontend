@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { withRouter } from 'react-router-dom'
 
 function ToysCreate(props) {
   const [newForm, setNewForm] = useState({
@@ -20,7 +21,7 @@ function ToysCreate(props) {
       name: "",
       image: "",
     });
-    props.history.push('/toys');
+    props.history.push("/toys");
   };
 
   return (
@@ -46,4 +47,4 @@ function ToysCreate(props) {
   );
 }
 
-export default ToysCreate;
+export default withRouter(ToysCreate);
