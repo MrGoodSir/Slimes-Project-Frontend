@@ -1,29 +1,14 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function SlimesShow(props) {
   const id = props.match.params.id;
   const slimes = props.slimes;
   const slime = slimes.find((p) => p._id === id);
 
-  const [editForm, setEditForm] = useState(slime);
-
-  const handleChange = (event) => {
-    setEditForm((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value,
-    }));
-  };
-
-  const handleSubmit = (event) => {
-      event.preventDefault();
-      props.updateSlimes(editForm, slime._id);
-      props.history.push("/")
-  }
-
   const removeSlime = () => {
-      props.deleteSlimes(slime._id);
-      props.history.push("/")
-  }
+    props.deleteSlimes(slime._id);
+    props.history.push("/");
+  };
 
   return (
     <div className="slime">
@@ -34,51 +19,9 @@ function SlimesShow(props) {
       <h1>Favorite Toy: {slime.favToy}</h1>
       <h1>Agression: {slime.slimeType}</h1>
       <h2>Color: {slime.color}</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={editForm.name}
-          name="name"
-          placeholder="name"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={editForm.name}
-          name="name"
-          placeholder="name"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={editForm.name}
-          name="name"
-          placeholder="name"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={editForm.name}
-          name="name"
-          placeholder="name"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={editForm.name}
-          name="name"
-          placeholder="name"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={editForm.image}
-          name="image"
-          placeholder="Image URL"
-          onChange={handleChange}
-        />
-        <input type="submit" value="Update Slime" />
-      </form>
+      <Link to="/slimes/:id/edit">
+        <button>Edit Slime</button>
+      </Link>
     </div>
   );
 }

@@ -9,6 +9,7 @@ import ToysShow from "../pages/ToysShow";
 import SlimesCreate from "../pages/SlimesCreate";
 import FoodsCreate from "../pages/FoodsCreate";
 import ToysCreate from "../pages/ToysCreate";
+import SlimesEdit from "../pages/SlimesEdit";
 import { Link } from "react-router-dom";
 
 function Main(props) {
@@ -142,7 +143,7 @@ function Main(props) {
       <Switch>
         <Route exact path="/slimes">
           <Link to={`/slimes/create`}>Create A Slime</Link>
-          <SlimesIndex slimes={slimes}/>
+          <SlimesIndex slimes={slimes} />
         </Route>
         <Route exact path="/slimes/create">
           <SlimesCreate slimes={slimes} createSlimes={createSlimes} />
@@ -160,6 +161,9 @@ function Main(props) {
         </Route>
         <Route exact path="/toys/create">
           <ToysCreate toys={toys} createToys={createToys} />
+        </Route>
+        <Route path="/slimes/:id/edit">
+          <SlimesEdit slimes={slimes} />
         </Route>
         <Route exact path="/">
           <h1>

@@ -69,7 +69,7 @@ function SlimesCreate(props) {
           type="text"
           value={newForm.slimeType}
           name="slimeType"
-          placeholder="Type of Slime"
+          placeholder="Additude"
           onChange={handleChange}
         />
         <input
