@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
+import HomePage from "../pages/HomePage";
 import SlimesIndex from "../pages/SlimesIndex";
 import FoodsIndex from "../pages/FoodsIndex";
 import ToysIndex from "../pages/ToysIndex";
@@ -152,15 +153,7 @@ function Main(props) {
           <ToysEdit toys={toys} />
         </Route>
         <Route exact path="/">
-          <h1>
-            <Link to={`/slimes`}>Slime</Link>
-          </h1>
-          <h1>
-            <Link to={`/foods`}>Foods</Link>
-          </h1>
-          <h1>
-            <Link to={`/toys`}>Toys</Link>
-          </h1>
+          <HomePage />
         </Route>
         <Route
           path="/slimes/:id"

@@ -5,15 +5,53 @@ img {
   object-fit: cover;
 }
 
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+}
+
 //////////////////////////
 //// Header
 /////////////////////////
+
+.nav {
+  text-align: center;
+  margin: 0;
+  padding: 15px;
+  background-image: url("");
+  background-color: blue;
+}
+
+
 
 //////////////////////////
 //// Home Page
 /////////////////////////
 
+.home-page-body {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background-image: url("https://assets2.rockpapershotgun.com/slime-rancher-2-fishslimes-jpg.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/slime-rancher-2-fishslimes-jpg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
 
+.home-button {
+  padding: 15px 80px;
+  background-image: url(./images/Rad_Slime_SP.png);
+  background-size: center;
+  background-attachment: fixed;
+  border-radius: 15px;
+  color: black;
+}
 
 //////////////////////////
 //// Slime Index Page
