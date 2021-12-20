@@ -4,18 +4,17 @@ function FoodsIndex(props) {
   const loaded = () => {
     return props.foods.map((food) => (
       <div key={food._id} className="food">
-        <Link to={`/foods/${food._id}`}>
           <h1>{food.name}</h1>
-        </Link>
+        <Link to={`/foods/${food._id}`}>
         <img src={food.image} alt={food.name} />
+        </Link>
       </div>
     ));
   };
-  const loading = () => {
-    return <h1>Loading...</h1>;
-  };
 
-  return loaded();
+
+  return props.foods ? loaded() : <h2>Loading Toys...</h2>
+  
 }
 
 export default FoodsIndex;

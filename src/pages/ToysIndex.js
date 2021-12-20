@@ -4,19 +4,15 @@ function ToysIndex(props) {
   const loaded = () => {
     return props.toys.map((toy) => (
       <div key={toy._id} className="toy">
-        <Link to={`/toys/${toy._id}`}>
           <h1>{toy.name}</h1>
-        </Link>
+        <Link to={`/toys/${toy._id}`}>
         <img src={toy.image} alt={toy.name} />
+        </Link>
       </div>
     ));
   };
 
-  const loading = () => {
-    return <h1>Loading...</h1>;
-  };
-
-  return loaded();
+  return props.toys ? loaded() : <h2>Loading Toys...</h2>
 }
 
 export default ToysIndex;

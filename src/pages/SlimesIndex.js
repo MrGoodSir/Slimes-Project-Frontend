@@ -4,19 +4,15 @@ function SlimesIndex(props) {
   const loaded = () => {
     return props.slimes.map((slime) => (
       <div key={slime._id} className="slime">
-        <Link to={`/slimes/${slime._id}`}>
           <h1>{slime.name}</h1>
-        </Link>
+        <Link to={`/slimes/${slime._id}`}>
         <img src={slime.image} alt={slime.name} />
+        </Link>
       </div>
     ));
   };
 
-  const loading = () => {
-    return <h1>Loading...</h1>;
-  };
-
-  return props.slimes ? loaded() : loading();
+  return props.slimes ? loaded() : <h2>Loading Toys...</h2>
 }
 
 export default SlimesIndex;

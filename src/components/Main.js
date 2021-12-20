@@ -10,6 +10,8 @@ import SlimesCreate from "../pages/SlimesCreate";
 import FoodsCreate from "../pages/FoodsCreate";
 import ToysCreate from "../pages/ToysCreate";
 import SlimesEdit from "../pages/SlimesEdit";
+import ToysEdit from "../pages/ToysEdit";
+import FoodsEdit from "../pages/FoodsEdit";
 import { Link } from "react-router-dom";
 
 function Main(props) {
@@ -111,32 +113,10 @@ function Main(props) {
     getToys();
   };
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////// Delete \/
-
-  const deleteSlimes = async (id) => {
-    await fetch(URL + id, {
-      method: "DELETE",
-    });
-    getSlimes();
-  };
-
-  const deleteFoods = async (id) => {
-    await fetch(URL + id, {
-      method: "DELETE",
-    });
-    getFoods();
-  };
-
-  const deleteToys = async (id) => {
-    await fetch(URL + id, {
-      method: "DELETE",
-    });
-    getToys();
-  };
 
   useEffect(() => getSlimes(), []);
   useEffect(() => getFoods(), []);
-  useEffect(() => getSlimes(), []);
+  useEffect(() => getToys(), []);
 
   return (
     <main>
@@ -148,6 +128,9 @@ function Main(props) {
         <Route exact path="/slimes/create">
           <SlimesCreate slimes={slimes} createSlimes={createSlimes} />
         </Route>
+        <Route path="/slimes/:id/edit">
+          <SlimesEdit slimes={slimes} />
+        </Route>
         <Route exact path="/foods">
           <Link to={`/foods/create`}>Create A Food</Link>
           <FoodsIndex foods={foods} />
@@ -155,15 +138,18 @@ function Main(props) {
         <Route exact path="/foods/create">
           <FoodsCreate foods={foods} createFoods={createFoods} />
         </Route>
+        <Route path="/foods/:id/edit">
+          <FoodsEdit foods={foods} />
+        </Route>
         <Route exact path="/toys">
-          <Link to={`/toys/create`}>Create A Toy</Link>
+          <Link to={`/toys/create`}>Create A Food</Link>
           <ToysIndex toys={toys} />
         </Route>
         <Route exact path="/toys/create">
           <ToysCreate toys={toys} createToys={createToys} />
         </Route>
-        <Route path="/slimes/:id/edit">
-          <SlimesEdit slimes={slimes} />
+        <Route path="/toys/:id/edit">
+          <ToysEdit toys={toys} />
         </Route>
         <Route exact path="/">
           <h1>
@@ -182,7 +168,6 @@ function Main(props) {
             <SlimesShow
               slimes={slimes}
               updateSlimes={updateSlimes}
-              deleteSlimes={deleteSlimes}
               {...rp}
             />
           )}
@@ -193,7 +178,6 @@ function Main(props) {
             <FoodsShow
               foods={foods}
               updateFoods={updateFoods}
-              deleteFoods={deleteFoods}
               {...rp}
             />
           )}
@@ -204,7 +188,6 @@ function Main(props) {
             <ToysShow
               toys={toys}
               updateToys={updateToys}
-              deleteToys={deleteToys}
               {...rp}
             />
           )}
